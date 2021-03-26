@@ -70,7 +70,19 @@ textarea {
 textarea {
 	resize: horizontal;
 }
+a {
+	transition: 0.3s;
+	&:hover {
+		text-decoration: none !important;
+	}
+	&:active {
+		text-decoration-line: underline;
 
+		color: #000000;
+
+		opacity: 0.3;
+	}
+}
 .big_wrapper {
 	//overflow: hidden;
 	position: relative;
@@ -327,12 +339,18 @@ textarea {
 	font-size: 64px;
 	line-height: 100%;
 	font-size: calc(28 * 1px + 0.025 * 100vw);
+	@media screen and (min-width: 1500px) {
+		font-size: 64px;
+	}
 }
 .page_title {
 	font-size: 72px;
 	line-height: 84/72;
 	color: #000000;
 	font-size: calc(153 / 7 * 1px + 39 / 1120 * 100vw);
+	@media screen and (min-width: 1500px) {
+		font-size: 72px;
+	}
 }
 ._sticky {
 	.wrapper {
@@ -360,6 +378,7 @@ textarea {
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
+			animation: raotation 5s linear infinite;
 			@media screen and (max-width: 700px) {
 				display: none;
 			}
@@ -374,21 +393,27 @@ textarea {
 			color: #ffffff;
 			@media screen and (max-width: 700px) {
 				display: flex;
-				font-size: 14px;
+				font-size: 16px;
+				p {
+					&:first-child {
+						margin-right: 4px;
+					}
+				}
 			}
 		}
 		@media screen and (max-width: 700px) {
 			background: #000;
 			top: 10px;
 			right: 15px;
-			padding: 2px 14px;
+			padding: 2px 16px;
 			border-radius: 6px;
 		}
 	}
 	.chancge {
 		display: flex;
 		align-items: center;
-		padding: 6px 6px 6px 10px;
+		padding: 6px 9px 6px 14px;
+
 		background: #000000;
 		border-radius: 37px;
 		position: fixed;
@@ -398,11 +423,11 @@ textarea {
 		cursor: pointer;
 		user-select: none;
 		.value {
-			font-size: 18px;
+			font-size: 24px;
 			color: #fff;
 		}
 		.icon {
-			margin-left: 4px;
+			margin-left: 6px;
 			background: #5b62f6;
 			width: 20px;
 			height: 20px;
@@ -422,6 +447,10 @@ textarea {
 		}
 		&.color_5 .icon {
 			background: #5b62f6;
+		}
+		@media screen and (max-width: 500px) {
+			left: 20px;
+			bottom: 10px;
 		}
 	}
 
@@ -449,7 +478,7 @@ textarea {
 					margin-top: 22px;
 				}
 				@media screen and (max-width: 500px) {
-					font-size: 14px;
+					font-size: 16px;
 					line-height: 120%;
 					color: #000000;
 					max-width: 272px;
@@ -537,7 +566,7 @@ textarea {
 				margin-bottom: 8px;
 				font-family: "Rubik";
 				@media screen and (max-width: 500px) {
-					font-size: 18px;
+					font-size: 20px;
 					line-height: 21px;
 				}
 			}
@@ -546,7 +575,7 @@ textarea {
 				line-height: 120%;
 				color: #000000;
 				@media screen and (max-width: 500px) {
-					font-size: 14px;
+					font-size: 16px;
 				}
 			}
 			@media screen and (max-width: 1000px) {
@@ -621,7 +650,7 @@ textarea {
 					line-height: 28px;
 					color: #000000;
 					@media screen and (max-width: 500px) {
-						font-size: 18px;
+						font-size: 20px;
 						line-height: 21px;
 						margin-bottom: 8px;
 					}
@@ -631,7 +660,7 @@ textarea {
 					line-height: 120%;
 					color: #000000;
 					@media screen and (max-width: 500px) {
-						font-size: 14px;
+						font-size: 16px;
 					}
 				}
 			}
@@ -745,7 +774,7 @@ textarea {
 					min-height: unset;
 				}
 				@media screen and (max-width: 500px) {
-					padding: 14px;
+					padding: 16px;
 				}
 			}
 			.item_title {
@@ -756,7 +785,7 @@ textarea {
 				line-height: 28px;
 				color: #000000;
 				@media screen and (max-width: 500px) {
-					font-size: 18px;
+					font-size: 20px;
 					line-height: 21px;
 					margin-bottom: 8px;
 				}
@@ -766,7 +795,7 @@ textarea {
 				line-height: 120%;
 				color: #000000;
 				@media screen and (max-width: 500px) {
-					font-size: 14px;
+					font-size: 16px;
 				}
 			}
 			@media screen and (max-width: 1000px) {
@@ -825,7 +854,7 @@ textarea {
 						height: 35px;
 						border: 2px solid #000000;
 						border-radius: 12px;
-						font-size: 18px;
+						font-size: 20px;
 					}
 				}
 				.step_title {
@@ -835,7 +864,7 @@ textarea {
 					line-height: 28px;
 					margin-bottom: 8px;
 					@media screen and (max-width: 700px) {
-						font-size: 18px;
+						font-size: 20px;
 					}
 				}
 				.step_desc {
@@ -845,7 +874,7 @@ textarea {
 						flex: 0 1 100%;
 					}
 					@media screen and (max-width: 700px) {
-						font-size: 14px;
+						font-size: 16px;
 					}
 				}
 				.text {
@@ -1002,7 +1031,7 @@ textarea {
 			border-radius: 100px;
 			margin: 0 2px 4px;
 			@media screen and (max-width: 700px) {
-				font-size: 14px;
+				font-size: 16px;
 			}
 		}
 		.right_part {
@@ -1082,7 +1111,7 @@ textarea {
 					line-height: 28px;
 					color: #000000;
 					@media screen and (max-width: 700px) {
-						font-size: 18px;
+						font-size: 20px;
 						line-height: 21px;
 					}
 				}
@@ -1134,7 +1163,7 @@ textarea {
 				line-height: 100%;
 				color: #000000;
 				@media screen and (max-width: 700px) {
-					font-size: 14px;
+					font-size: 16px;
 				}
 			}
 			.value_part {
@@ -1187,10 +1216,12 @@ textarea {
 					padding: 40px 16px 103px;
 				}
 			}
-			&:nth-child(2) {
+			&:nth-child(2n) {
 				.wrapper {
-					//display: flex;
-					//flex-direction: column;
+					@media screen and (max-width: 1000px) {
+						display: flex;
+						flex-direction: column;
+					}
 				}
 				.left_part {
 					@media screen and (max-width: 1000px) {
@@ -1211,11 +1242,11 @@ textarea {
 				}
 				.tags_cont {
 					.tag_item {
-						border: 2px solid #5b62f6;
-						color: #5b62f6;
+						//border: 2px solid #5b62f6;
+						//color: #5b62f6;
 						&._black {
-							background: #5b62f6;
-							color: #fff;
+							//background: #5b62f6;
+							//color: #fff;
 						}
 					}
 				}
@@ -1260,7 +1291,7 @@ textarea {
 					color: #fff;
 				}
 				@media screen and (max-width: 1000px) {
-					font-size: 14px;
+					font-size: 16px;
 				}
 			}
 			@media screen and (max-width: 1000px) {
@@ -1461,7 +1492,7 @@ textarea {
 				color: #000000;
 				margin-bottom: 18px;
 				@media screen and (max-width: 700px) {
-					font-size: 18px;
+					font-size: 20px;
 					line-height: 21px;
 					margin-bottom: 8px;
 				}
@@ -1475,7 +1506,7 @@ textarea {
 					margin-bottom: 0;
 				}
 				@media screen and (max-width: 700px) {
-					font-size: 14px;
+					font-size: 16px;
 					line-height: 120%;
 					margin-bottom: 16px;
 				}
@@ -1499,12 +1530,12 @@ textarea {
 		justify-content: space-between;
 		@media screen and (max-width: 1000px) {
 			display: block;
-			padding: 28px 16px 40px;
+			padding: 28px 16px 60px;
 			border-radius: 0;
 		}
 	}
 	.left_part {
-		flex: 0 1 470px;
+		flex: 0 1 500px;
 		margin-right: 20px;
 		position: relative;
 		.block_title {
@@ -1522,7 +1553,7 @@ textarea {
 			margin-bottom: 24px;
 			@media screen and (max-width: 1000px) {
 				margin-bottom: 8px;
-				font-size: 18px;
+				font-size: 20px;
 				line-height: 21px;
 			}
 		}
@@ -1582,7 +1613,7 @@ textarea {
 					line-height: 120%;
 					color: #000000;
 					@media screen and (max-width: 700px) {
-						font-size: 14px;
+						font-size: 16px;
 					}
 				}
 				.arrow {
@@ -1599,6 +1630,7 @@ textarea {
 				width: 100%;
 				padding: 8px 0;
 				display: none;
+				z-index: 3;
 				._drop_item {
 					display: flex;
 					align-items: center;
@@ -1624,6 +1656,7 @@ textarea {
 		}
 		.input_item {
 			margin-bottom: 47px;
+			position: relative;
 			input {
 				display: block;
 				width: 100%;
@@ -1634,7 +1667,24 @@ textarea {
 				font-size: 18px;
 				line-height: 120%;
 				color: #0009;
+				&._black {
+					color: #000;
+				}
+				&._error + .error {
+					display: block;
+				}
 			}
+			.error {
+				position: absolute;
+				top: 100%;
+				left: 0;
+				display: none;
+				padding-top: 5px;
+				font-size: 18px;
+				line-height: 120%;
+				color: #ff8577;
+			}
+
 			@media screen and (max-width: 700px) {
 				margin-bottom: 25px;
 			}
@@ -1652,14 +1702,22 @@ textarea {
 			width: 100%;
 			border: none;
 			cursor: pointer;
+			transition: 0.5s;
+			&:hover {
+				background: #5b62f6;
+			}
+			&:active {
+				background: rgba(0, 0, 0, 0.1);
+				color: #000;
+			}
 			@media screen and (max-width: 700px) {
 				padding: 17px 0;
-				font-size: 18px;
+				font-size: 20px;
 			}
 		}
 		.pressing_button {
 			margin-top: 13px;
-			font-size: 14px;
+			font-size: 16px;
 			line-height: 120%;
 			color: #000000;
 			text-align: center;
@@ -1675,5 +1733,14 @@ textarea {
 	@media screen and (max-width: 1000px) {
 		padding: 0;
 		margin: 64px 0 0;
+	}
+}
+
+@keyframes raotation {
+	0% {
+		transform: translate(-50%, -50%) rotate(0);
+	}
+	100% {
+		transform: translate(-50%, -50%) rotate(360deg);
 	}
 }

@@ -35,6 +35,7 @@
         nextArrow: $('.next_arrow'),
         prevArrow: $('.prev_arrow'),
         infinite: false,
+        fade: true,
     })
     accordeon();
     $('.star').click(function () {
@@ -52,18 +53,51 @@ let figmaAnimation = () => {
     for (let a = 0; a < arrows.length; a++) {
         traectory(arrows[a]);
     }
+    //traectory(arrows[0]);
+    //traectory(arrows[1]);
 }
+let form = () => {
+    let inputs = document.querySelectorAll('input');
 
+    for (let input of inputs) {
+        input.addEventListener('keydown', function () {
+            if (this.value.length > 0) {
+                this.classList.add('_black');
+            } else {
+                this.classList.remove('_black');
+            }
+        })
+        input.addEventListener('change', function () {
+            if (this.value.length > 0) {
+                this.classList.add('_black');
+            } else {
+                this.classList.remove('_black');
+            }
+        })
+
+    }
+    inputs[2].addEventListener('change', function () {
+        function validateEmail(email) { const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; return re.test(String(email).toLowerCase()); }
+        if (validateEmail(this.value)) {
+            this.classList.remove('_error');
+        } else {
+            this.classList.add('_error');
+        }
+    })
+}
 function traectory(props) {
     let n = Math.round(Math.random() * 2 + 2);
     function get_line() {
-        return Math.random() * 200 - 100;
+        return Math.random() * 150 - 75;
     }
-    function trasnform(i, n) {
+    function get_timeout() {
+        return Math.random() * 1000 + 1000;
+    }
+    function trasnform(i, n, trans) {
 
+        props.style.transition = `${trans / 1000}s`;
         if (i === n - 1) {
             props.style.transform = `translate(0px, 0px)`;
-            //console.log(142);
         } else {
             props.style.transform = `translate(${get_line()}px, ${get_line()}px)`;
         }
@@ -71,14 +105,16 @@ function traectory(props) {
     }
 
     let i = 0;
+    let trans = get_timeout();
+
     setInterval(() => {
-        trasnform(i, n);
+        trasnform(i, n, trans + 100);
 
         if (i === n - 1) {
             i = -1;
         }
         i++;
-    }, 1000);
+    }, trans);
 
 
 
@@ -113,3 +149,4 @@ let changeColor = () => {
     });
 }
 changeColor();
+form();
