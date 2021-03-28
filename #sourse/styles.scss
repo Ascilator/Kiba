@@ -599,6 +599,9 @@ a {
 				border-radius: 16px;
 			}
 		}
+		.slick-list {
+			overflow: visible;
+		}
 		.slick-track {
 			@media screen and (max-width: 500px) {
 				padding: 10px 0;
@@ -610,6 +613,7 @@ a {
 		}
 		@media screen and (max-width: 500px) {
 			margin-top: 72px;
+			overflow: hidden;
 		}
 	}
 	.who_need_this_course {

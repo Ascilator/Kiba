@@ -701,6 +701,10 @@ a:active {
   }
 }
 
+.main .adv_cont .slick-list {
+  overflow: visible;
+}
+
 @media screen and (max-width: 500px) {
   .main .adv_cont .slick-track {
     padding: 10px 0;
@@ -717,6 +721,7 @@ a:active {
 @media screen and (max-width: 500px) {
   .main .adv_cont {
     margin-top: 72px;
+    overflow: hidden;
   }
 }
 
