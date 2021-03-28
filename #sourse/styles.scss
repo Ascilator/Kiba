@@ -170,7 +170,7 @@ a {
 				.tag_item {
 					border-color: #5b62f6;
 					color: #5b62f6;
-					&._black {
+					&._active {
 						color: #fff;
 						background: #5b62f6;
 					}
@@ -787,6 +787,7 @@ a {
 				min-height: 288px;
 				@media screen and (max-width: 600px) {
 					min-height: unset;
+					margin-bottom: 16px;
 				}
 				@media screen and (max-width: 500px) {
 					padding: 16px;
@@ -1308,7 +1309,8 @@ a {
 				background: #ffffff;
 				border: 2px solid #000000;
 				border-radius: 100px;
-				&._black {
+				cursor: pointer;
+				&._active {
 					background: #000000;
 					color: #fff;
 				}

@@ -184,6 +184,12 @@ let inoutsFocus = () => {
             document.getElementById('chacnge_color').classList.remove('_none');
         })
     }
+    let tags = document.querySelectorAll('.tag_item');
+    for (let tag of tags) {
+        tag.addEventListener('click', function () {
+            this.classList.toggle('_active')
+        })
+    }
 }
 inoutsFocus();
 

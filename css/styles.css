@@ -179,7 +179,7 @@ a:active {
   color: #5b62f6;
 }
 
-.big_wrapper.color_1 .main .tags_cont .tag_item._black {
+.big_wrapper.color_1 .main .tags_cont .tag_item._active {
   color: #fff;
   background: #5b62f6;
 }
@@ -1002,6 +1002,7 @@ a:active {
 @media screen and (max-width: 600px) {
   .main .what_youll_learn .right_part .learn_item {
     min-height: unset;
+    margin-bottom: 16px;
   }
 }
 
@@ -1783,9 +1784,10 @@ a:active {
   background: #ffffff;
   border: 2px solid #000000;
   border-radius: 100px;
+  cursor: pointer;
 }
 
-.main .slider_block .tags_cont .tag_item._black {
+.main .slider_block .tags_cont .tag_item._active {
   background: #000000;
   color: #fff;
 }
