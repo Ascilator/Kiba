@@ -378,7 +378,7 @@ a {
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
-			animation: raotation 5s linear infinite;
+			//animation: raotation 5s linear infinite;
 			@media screen and (max-width: 700px) {
 				display: none;
 			}
@@ -405,7 +405,7 @@ a {
 			background: #000;
 			top: 10px;
 			right: 15px;
-			padding: 2px 16px;
+			padding: 5px 16px;
 			border-radius: 6px;
 		}
 	}
@@ -425,6 +425,7 @@ a {
 		.value {
 			font-size: 24px;
 			color: #fff;
+			font-family: "Rubik";
 		}
 		.icon {
 			margin-left: 6px;
@@ -447,6 +448,9 @@ a {
 		}
 		&.color_5 .icon {
 			background: #5b62f6;
+		}
+		&._none {
+			display: none;
 		}
 		@media screen and (max-width: 500px) {
 			left: 20px;
@@ -503,6 +507,14 @@ a {
 				width: 100%;
 			}
 			.arrow_item {
+				&:nth-child(2) {
+					top: 50%;
+					left: -10%;
+					@media screen and (max-width: 700px) {
+						display: block;
+						opacity: 0;
+					}
+				}
 				&:nth-child(3) {
 					top: 94%;
 					left: 15%;
@@ -514,21 +526,18 @@ a {
 				&:nth-child(4) {
 					top: 40%;
 					left: 80%;
+					@media screen and (max-width: 700px) {
+						display: block;
+						top: -60%;
+						left: 70%;
+					}
 				}
 				&:nth-child(5) {
 					top: 70%;
 					left: 70%;
 					transition-timing-function: ease-in-out;
 				}
-				&:nth-child(2) {
-					top: 50%;
-					left: -10%;
-					@media screen and (max-width: 700px) {
-						display: block;
-						top: -60%;
-						left: 50%;
-					}
-				}
+
 				@media screen and (max-width: 700px) {
 					display: none;
 				}
@@ -583,10 +592,16 @@ a {
 				min-width: 203px;
 			}
 			@media screen and (max-width: 500px) {
-				flex: 0 0 203px;
+				flex: 0 0 208px;
+				width: 208px;
 				padding: 11px 17px;
 				border: 2px solid #000000;
 				border-radius: 16px;
+			}
+		}
+		.slick-track {
+			@media screen and (max-width: 500px) {
+				padding: 10px 0;
 			}
 		}
 		@media screen and (max-width: 1000px) {
@@ -936,6 +951,8 @@ a {
 					left: 70%;
 					@media screen and (max-width: 700px) {
 						display: block;
+						top: 120%;
+						left: 80%;
 					}
 				}
 				@media screen and (max-width: 700px) {
@@ -1003,6 +1020,11 @@ a {
 			.arrow_item {
 				left: 50%;
 				top: 100%;
+				@media screen and (max-width: 700px) {
+					display: block;
+					top: 20%;
+					left: 20%;
+				}
 			}
 			@media screen and (max-width: 1000px) {
 				display: flex;
@@ -1318,12 +1340,26 @@ a {
 			font-size: 48px;
 			line-height: 56px;
 			color: #000000;
+			@media screen and (max-width: 500px) {
+				font-style: normal;
+				font-weight: 200;
+				font-size: 48px;
+				line-height: 56px;
+				color: #000000;
+			}
 		}
 		.next_arrow {
 			font-size: 48px;
 			line-height: 56px;
 			color: #000000;
 			cursor: pointer;
+			@media screen and (max-width: 500px) {
+				font-style: normal;
+				font-weight: 200;
+				font-size: 48px;
+				line-height: 56px;
+				color: #000000;
+			}
 		}
 		.right_part {
 			position: relative;
@@ -1389,10 +1425,10 @@ a {
 		.prices_body {
 			display: flex;
 			align-items: flex-start;
-			margin: 0 -27px;
+			margin: 0 -20px;
 			.price_item {
 				flex: 0 1 33.333%;
-				margin: 0 27px;
+				margin: 0 20px;
 				background: #ffffff;
 				border: 3px solid #000000;
 				box-shadow: 3px 3px 0px #000000;

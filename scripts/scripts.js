@@ -37,6 +37,57 @@
         infinite: false,
         fade: true,
     })
+    var slider = $('.adv_body');
+    var sliderIsLive = false;
+
+    if ($('html').width() < 500) {
+        if (sliderIsLive === false) {
+            slider.slick({
+                dots: false,
+                infinite: false,
+                slidesToScroll: 1,
+                arrows: false,
+                variableWidth: true,
+                easing: 'linear',
+                autoplay: true,
+                autoplaySpeed: 2000,
+            });
+            sliderIsLive = true;
+        }
+
+    } else {
+
+        if (sliderIsLive === true) {
+            slider.slick('unslick');
+            sliderIsLive = false;
+        }
+    }
+    $(window).resize(function () {
+        if ($('html').width() < 500) {
+
+            if (sliderIsLive === false) {
+                slider.slick({
+                    dots: false,
+                    infinite: false,
+                    slidesToScroll: 2,
+                    arrows: false,
+                    variableWidth: true,
+                    easing: 'linear',
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                });
+                sliderIsLive = true;
+            }
+        } else {
+
+            if (sliderIsLive === true) {
+                slider.slick('unslick');
+                sliderIsLive = false;
+            }
+        }
+
+    });
+
     accordeon();
     $('.star').click(function () {
 
@@ -123,6 +174,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     figmaAnimation();
 }, false);
+let inoutsFocus = () => {
+    let inputs = document.querySelectorAll('input');
+    for (input of inputs) {
+        input.addEventListener('focus', function () {
+            document.getElementById('chacnge_color').classList.add('_none');
+        })
+        input.addEventListener('blur', function () {
+            document.getElementById('chacnge_color').classList.remove('_none');
+        })
+    }
+}
+inoutsFocus();
 
 
 let changeColor = () => {
@@ -148,5 +211,19 @@ let changeColor = () => {
         currentIndex++;
     });
 }
+
+let rotationStar = () => {
+    window.addEventListener('scroll', function () {
+        var body = document.body,
+            html = document.documentElement;
+        rotation = window.pageYOffset / Math.max(body.scrollHeight, body.offsetHeight,
+            html.clientHeight, html.scrollHeight, html.offsetHeight);
+
+        let star = document.querySelector('.star>img');
+
+        star.style.transform = `translate(-50%, -50%) rotate(${rotation * 400}deg)`
+    })
+}
+rotationStar();
 changeColor();
 form();
