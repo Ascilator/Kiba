@@ -16,6 +16,22 @@
     });
 
 
+    for (let i = 0; i < $('.groupe_tab').length; i++) {
+        $('.groupe_tab').eq(i).children('.tab_body').children('.tab_content').not(":first").hide();
+
+    }
+
+    //
+    $(".tag_item").click(function () {
+        $(this).parent().children().removeClass("_active");
+        $(this).parent().children('.tag_item').eq($(this).index()).addClass("_active");
+
+        $(this).parent().siblings(".tab_body").children('.tab_content').hide();
+        $(this).parent().siblings(".tab_body").children('.tab_content').eq($(this).index()).fadeIn();
+    })
+
+
+
 
     let accordeon = () => {
 
@@ -37,56 +53,56 @@
         infinite: false,
         fade: true,
     })
-    var slider = $('.adv_body');
-    var sliderIsLive = false;
+    // var slider = $('.adv_body');
+    // var sliderIsLive = false;
 
-    if ($('html').width() < 500) {
-        if (sliderIsLive === false) {
-            slider.slick({
-                dots: false,
-                infinite: false,
-                slidesToScroll: 1,
-                arrows: false,
-                variableWidth: true,
-                easing: 'linear',
-                autoplay: true,
-                autoplaySpeed: 2000,
-            });
-            sliderIsLive = true;
-        }
+    // if ($('html').width() < 500) {
+    //     if (sliderIsLive === false) {
+    //         slider.slick({
+    //             dots: false,
+    //             infinite: false,
+    //             slidesToScroll: 1,
+    //             arrows: false,
+    //             variableWidth: true,
+    //             easing: 'linear',
+    //             autoplay: true,
+    //             autoplaySpeed: 2000,
+    //         });
+    //         sliderIsLive = true;
+    //     }
 
-    } else {
+    // } else {
 
-        if (sliderIsLive === true) {
-            slider.slick('unslick');
-            sliderIsLive = false;
-        }
-    }
-    $(window).resize(function () {
-        if ($('html').width() < 500) {
+    //     if (sliderIsLive === true) {
+    //         slider.slick('unslick');
+    //         sliderIsLive = false;
+    //     }
+    // }
+    // $(window).resize(function () {
+    //     if ($('html').width() < 500) {
 
-            if (sliderIsLive === false) {
-                slider.slick({
-                    dots: false,
-                    infinite: false,
-                    slidesToScroll: 2,
-                    arrows: false,
-                    variableWidth: true,
-                    easing: 'linear',
-                    autoplay: true,
-                    autoplaySpeed: 2000,
-                });
-                sliderIsLive = true;
-            }
-        } else {
+    //         if (sliderIsLive === false) {
+    //             slider.slick({
+    //                 dots: false,
+    //                 infinite: false,
+    //                 slidesToScroll: 2,
+    //                 arrows: false,
+    //                 variableWidth: true,
+    //                 easing: 'linear',
+    //                 autoplay: true,
+    //                 autoplaySpeed: 2000,
+    //             });
+    //             sliderIsLive = true;
+    //         }
+    //     } else {
 
-            if (sliderIsLive === true) {
-                slider.slick('unslick');
-                sliderIsLive = false;
-            }
-        }
+    //         if (sliderIsLive === true) {
+    //             slider.slick('unslick');
+    //             sliderIsLive = false;
+    //         }
+    //     }
 
-    });
+    // });
 
     accordeon();
     $('.star').click(function () {
@@ -184,16 +200,66 @@ let inoutsFocus = () => {
             document.getElementById('chacnge_color').classList.remove('_none');
         })
     }
-    let tags = document.querySelectorAll('.tag_item');
-    for (let tag of tags) {
-        tag.addEventListener('click', function () {
-            this.classList.toggle('_active')
-        })
-    }
+
 }
 inoutsFocus();
 
 
+let advScroll = () => {
+    //element.scrollLeft;
+    let anim_item = document.querySelector('.adv_cont')
+    document.addEventListener('scroll', () => {
+
+
+        let anim_item_height = anim_item.offsetHeight;
+        let position = getCoords(anim_item).top;
+
+
+
+        let anim_item_point = window.innerHeight - 2 * anim_item_height;
+
+
+        if ((pageYOffset > position - anim_item_point)) {
+            let sroll = setInterval(() => {
+                if (anim_item.scrollLeft < 150) {
+                    anim_item.scrollLeft += 1;
+                } else {
+                    clearInterval(sroll);
+                }
+            }, 60);
+        } else {
+
+        }
+
+
+    });
+    function getCoords(elem) {
+        // (1)
+        var box = elem.getBoundingClientRect();
+
+        var body = document.body;
+        var docEl = document.documentElement;
+
+        // (2)
+        var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
+        var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
+
+        // (3)
+        var clientTop = docEl.clientTop || body.clientTop || 0;
+        var clientLeft = docEl.clientLeft || body.clientLeft || 0;
+
+        // (4)
+        var top = box.top + scrollTop - clientTop;
+        var left = box.left + scrollLeft - clientLeft;
+
+        return {
+            top: top,
+            left: left
+        };
+    }
+}
+
+advScroll();
 let changeColor = () => {
     let colors = [
         "color_1",
