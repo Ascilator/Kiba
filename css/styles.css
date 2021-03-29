@@ -1966,6 +1966,10 @@ a:active {
   background: #f2c94c;
 }
 
+.main .slider_block .right_part .tab_right_content {
+  height: 100%;
+}
+
 @media screen and (max-width: 1000px) {
   .main .slider_block {
     margin-top: 64px;

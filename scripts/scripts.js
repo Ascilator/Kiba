@@ -18,7 +18,7 @@
 
     for (let i = 0; i < $('.groupe_tab').length; i++) {
         $('.groupe_tab').eq(i).children('.tab_body').children('.tab_content').not(":first").hide();
-
+        $('.groupe_tab').eq(i).parent().siblings('.right_part').children('.tab_right_content').not(":first").hide();
     }
 
     //
@@ -26,8 +26,13 @@
         $(this).parent().children().removeClass("_active");
         $(this).parent().children('.tag_item').eq($(this).index()).addClass("_active");
 
+
         $(this).parent().siblings(".tab_body").children('.tab_content').hide();
         $(this).parent().siblings(".tab_body").children('.tab_content').eq($(this).index()).fadeIn();
+
+
+        $(this).parent().parent().parent().siblings('.right_part').children('.tab_right_content').hide();
+        $(this).parent().parent().parent().siblings('.right_part').children('.tab_right_content').eq($(this).index()).fadeIn();
     })
 
 

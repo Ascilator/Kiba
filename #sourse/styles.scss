@@ -1432,6 +1432,11 @@ a {
 					}
 				}
 			}
+			.tab_right_content {
+				height: 100%;
+				&._active {
+				}
+			}
 		}
 		@media screen and (max-width: 1000px) {
 			margin-top: 64px;
